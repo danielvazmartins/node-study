@@ -1,8 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
-	res.render('login');
-});
+module.exports = function(passport) {
+	router.get('/', function(req, res, next) {
+		res.render('login');
+	});
 
-module.exports = router;
+	router.post('/', 
+		passport.authenticate('local', {
+			successRedirect: '/home',
+			failureRedirect: '/login'
+		})
+	);
+
+	return router;
+};
