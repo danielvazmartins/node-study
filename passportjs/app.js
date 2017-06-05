@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
+var session = require('express-session');
 var app = express();
 
 // Configuracao do passport
@@ -21,16 +22,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Inicializa o passport (compomente de autenticacao)
+app.use(session({secret: 'chavesecretssesionlogin'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Rotas
-var index = require('./routes/index');
-var login = require('./routes/login')(passport);
-var home = require('./routes/home');
-app.use('/', index);
-app.use('/login', login);
-app.use('/home', home);
+require('./router.js')(app, passport);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

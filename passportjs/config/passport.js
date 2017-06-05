@@ -2,7 +2,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 module.exports = function(passport) {	
 
-	// Local estra´tegia para fazer a autenticacao
+	// Estrategia local para fazer a autenticacao
 	passport.use(new LocalStrategy(
 		function(username, password, done) {
 			// Valida o usuario
@@ -30,7 +30,7 @@ module.exports = function(passport) {
 	// Retira o usuario da sessao
 	passport.deserializeUser(function(id, done){
 		var user = {
-			username: username
+			username: id
 		}
 
 		done(null, user);
