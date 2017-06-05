@@ -1,0 +1,2 @@
+- [ ] Verificar parâmetros do express-session
+- [ ] Tratar em mostrar mensagem de erro de autenticação
