@@ -9,3 +9,4 @@ express --hbs --view hbs passportjs
 http://passportjs.org/
 https://scotch.io/tutorials/easy-node-authentication-setup-and-local
 https://github.com/expressjs/session
+https://github.com/jaredhanson/connect-flash

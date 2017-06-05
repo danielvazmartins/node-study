@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var session = require('express-session');
+var flash = require('connect-flash');
 var app = express();
 
 // Configuracao do passport
@@ -24,9 +25,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Inicializa o passport (compomente de autenticacao)
-app.use(session({secret: 'chavesecretssesionlogin'}));
+app.use(session({
+	secret: 'chavesecretssesionlogin',
+	resave: false,
+	saveUninitialized: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 // Rotas
 require('./router.js')(app, passport);
