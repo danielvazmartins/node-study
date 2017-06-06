@@ -4,8 +4,7 @@ var router = express.Router();
 module.exports = function(passport) {
 	// Abre a pagina de login
 	router.get('/', function(req, res, next) {
-		console.log("flash", req.flash());
-		res.render('login');
+		res.render('login', {messageFlash: req.flash('error')});
 	});
 
 	// No post, faz a autenticacao
@@ -13,6 +12,7 @@ module.exports = function(passport) {
 		passport.authenticate('local', {
 			successRedirect: '/home',
 			failureRedirect: '/login',
+			badRequestMessage: 'Favor informar o e-mail e a senha', // Altera mensagem "missing credentials"
 			failureFlash: true
 		})
 	);

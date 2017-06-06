@@ -3,14 +3,18 @@ var LocalStrategy = require('passport-local').Strategy;
 module.exports = function(passport) {	
 
 	// Estrategia local para fazer a autenticacao
-	passport.use(new LocalStrategy(
-		function(username, password, done) {
+	passport.use(new LocalStrategy({
+			usernameField: 'email', // O padrao e username
+			passwordField: 'password', // Esse ja e o valor padrao
+			passReqToCallback: true // Passa a requisicao como parametro para o callback abaixo
+		},
+		function(req, email, password, done) {
 			// Valida o usuario
-			if ( password == "teste" ) {
+			if ( password == "teste" ) { 
 				
 				// Cria um objeto do usuario para retornar
 				var user = {
-					username: username
+					email: email // Apenas um ID para armazenar o usuario na sessao
 				}
 
 				// Retorno com sucesso
@@ -22,15 +26,17 @@ module.exports = function(passport) {
 		}
 	));
 
-	// Carrega o usuario na sessao
+	// Salva o ID do usuario na sessao
 	passport.serializeUser(function(user, done){
-		done(null, user.username);
+		done(null, user.email);
 	});
 
-	// Retira o usuario da sessao
+	// Carrega o usuario da sessao
 	passport.deserializeUser(function(id, done){
+		// Carrega os dados do usuario atravez do ID que estava na sessao
 		var user = {
-			username: id
+			email: id,
+			nome: 'Daniel'
 		}
 
 		done(null, user);
