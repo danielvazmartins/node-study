@@ -1,5 +1,4 @@
 # PassportJS
-
 Autenticação utilizando a biblioteca passport (http://passportjs.org/)
 
 ## Criar estutura do projeto

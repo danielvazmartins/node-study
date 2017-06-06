@@ -7,7 +7,10 @@ npm install express-generator -g
 express -h
 
 # Criar estrutura básica padrão
-express
+express [pasta-projeto]
+
+# Criar estutura do projeto utilizando o handlebars
+express --hbs --view hbs [pasta-projeto]
 
 # Adicionar o nome do projeto se quiser criar o diretorio
 express myapp
