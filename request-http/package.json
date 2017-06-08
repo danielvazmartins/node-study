@@ -1,5 +1,5 @@
 {
-  "name": "request",
+  "name": "request-http",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "express": "~4.14.0",
     "hbs": "~4.0.1",
     "morgan": "~1.7.0",
+    "request": "^2.81.0",
     "serve-favicon": "~2.3.0"
   }
 }
