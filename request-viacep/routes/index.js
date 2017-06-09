@@ -9,24 +9,26 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: pageTitle });
 });
 
+// Recebe um post com o cep como parametro
 router.post('/', function(req, res, next) {
 	var _cep = req.body.cep;
-	if ( _cep != "" ) {
+	if ( _cep != "" ) {		
+		// Faz uma requisicao externa
 		request('http://viacep.com.br/ws/' + _cep + '/json/', function(error, response, body) {
-			console.log('error', error);
-			console.log('response', response);
-			console.log('body', body)
 			if ( response.statusCode == 200 ) {
-				res.render('index', { 
-					title: pageTitle,
-					address: JSON.parse(body)
-				});
+				var data = JSON.parse(body);
+				console.log(body);
+				if ( data.erro ) {
+					res.render('index', { title: pageTitle, msgError: 'Cep ' + _cep + ' não encontrado' });
+				} else {
+					res.render('index', {title: pageTitle, address: JSON.parse(body) });
+				}				
 			} else {
 				res.render('index', { title: pageTitle, msgError: response.statusMessage });
 			}			
 		});
-	} else {
-		res.render('index', { title: pageTitle });
+	} else {		
+		res.render('index', { title: pageTitle, msgError: 'Favor preencher o CEP' });
 	}
 });
 
