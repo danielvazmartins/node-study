@@ -4,9 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
+// Modulos para o passport
 var passport = require('passport');
 var session = require('express-session');
 var flash = require('connect-flash');
+
 var app = express();
 
 // Configuracao do passport

@@ -13,8 +13,10 @@ Utilizando o express genertor para criar uma estrutura básica para iniciar um p
 ## passportjs
 Processo de autenticação utilizando a biblioteca passportjs
 
+## request-viacep
+Componente utilizado para fazer requisições HTTP de maneira simples
+
 ## Projetos para verificar
-- request - https://github.com/request/request
 - http native - https://nodejs.org/api/http.html
 - Express routing - https://expressjs.com/en/guide/routing.html
 - Mysql - https://github.com/mysqljs/mysql | https://www.w3schools.com/nodejs/nodejs_mysql.asp
