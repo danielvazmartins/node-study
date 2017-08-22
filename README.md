@@ -13,7 +13,7 @@ Utilizando o express genertor para criar uma estrutura básica para iniciar um p
 ## passportjs
 Processo de autenticação utilizando a biblioteca passportjs
 
-## request-viacep
+## request-viqacep
 Componente utilizado para fazer requisições HTTP de maneira simples
 
 ## Projetos para verificar
