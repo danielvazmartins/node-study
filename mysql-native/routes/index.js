@@ -16,14 +16,13 @@ router.get('/', function(req, res, next) {
 		}
 		console.log('Conectado ao mysql');
 		// Cria uma tabela no banco
-		//createTable();
+		createTable();
 	});*/
-
-	
 
 	res.render('index', { title: 'MySql' });
 });
 
+// Cria a estrutura do banco de dados
 var createTable = function() {
 	var _sql = 'CREATE TABLE users (' +
   					'usr_id INT NOT NULL AUTO_INCREMENT,' +

@@ -7,3 +7,4 @@ express --hbs --view hbs passportjs
 # Fontes
 https://github.com/mysqljs/mysql
 https://www.w3schools.com/nodejs/nodejs_mysql.asp
+http://www.makebetterthings.com/node-js/how-to-use-html-with-express-node-js/

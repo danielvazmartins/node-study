@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+  <head>
+    <title>NodeJs - MySql</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='/stylesheets/style.css' />    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>  
+    <script src="/angular/app.js"></script>
+    <script src="/angular/controllers.js"></script>
+  </head>
+  <body ng-controller="MainController">
+    <div class="container">
+      <div id="index-root">
+  <div class="panel panel-primary">
+    <div class="panel-heading text-center">
+      <%= title %>
+    </div>
+    <div class="panel-body">
+      <div class="well">
+        <a class="btn btn-primary">Novo</a>
+        <a class="btn btn-primary">Alterar</a>
+        <a class="btn btn-primary">Salvar</a>
+      </div>
+      <div class="well">
+        <form>
+          <div class="form-group">
+              <label>Nome</label>
+              <input type="text" name="name" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" name="email" class="form-control" />
+            </div>
+        </form>
+      </div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <td>Nome</td>
+              <td>E-mail</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="user in users">
+              <td>{{user.usr_name}}</td>
+              <td>{{user.usr_email}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel-footer text-center">
+         
+    </div>
+  </div>  
+</div>   
+    </div>
+  </body>
+</html>
