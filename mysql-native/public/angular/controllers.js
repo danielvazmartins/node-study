@@ -1,9 +1,18 @@
 app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 	
-	$scope.users = [];	
+	$scope.users = [];
+	$scope.selectedUserId = null;
 
 	var init = function() {
-		getUsers();
+		//getUsers();
+	}
+
+	// Cria a estrutura do banco de dados
+	$scope.createDB = function() {
+		$http.get('/api/users/create-database')
+		.then(function successCallback(response) {
+			console.log(response);
+		})
 	}
 
 	// Retorna a lista de usuários
@@ -31,6 +40,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 
 	// Seleciona usuário para edição
 	$scope.editUser = function(user) {
+		$scope.selectedUserId = user.usr_id;
 		$scope.name = user.usr_name;
 		$scope.email = user.usr_email;
 	}
@@ -38,13 +48,16 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 	// Salva usuário alterado
 	$scope.updUser = function(user) {
 		var _data = {
-			id: user.usr_id,
-			name: user.usr_name,
-			email: user.usr_email
+			id: $scope.selectedUserId,
+			name: $scope.name,
+			email: $scope.email
 		}
 		$http.post('/api/users', _data)
 		.then(function successCallback(response) {
 			if ( response.data != "" ) {
+				$scope.selectedUserId = null;
+				$scope.name = "";
+				$scope.email = "";
 				getUsers();
 			}
 		});

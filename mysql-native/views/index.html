@@ -20,9 +20,7 @@
     </div>
     <div class="panel-body">
       <div class="well">
-        <a class="btn btn-primary">Novo</a>
-        <a class="btn btn-primary">Alterar</a>
-        <a class="btn btn-primary">Salvar</a>
+        <a class="btn btn-primary btn-block" ng-click="createDB()">Criar banco de dados</a>
       </div>
       <div class="well">
         <form>
@@ -34,7 +32,8 @@
               <label>E-mail</label>
               <input type="email" name="email" class="form-control" ng-model="email" />
             </div>
-            <a class="btn btn-primary btn-block" ng-click="addUser()">Adicionar Usuário</a>
+            <a class="btn btn-primary btn-block" ng-click="addUser()" ng-show="selectedUserId == null">Adicionar Usuário</a>
+            <a class="btn btn-primary btn-block" ng-click="updUser()" ng-show="selectedUserId != null">Salvar Usuário</a>
         </form>
       </div>
       <div class="table-responsive">

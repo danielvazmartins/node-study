@@ -6,6 +6,23 @@ var config = require('../../config/config.js');
 // Cria a conexão com o banco de dados
 var con = mysql.createConnection(config.mysql);
 
+// Cria a estrutura do banco de dados
+router.get('/create-database', function(request, response) {
+	
+
+	// Teste a conexão do banco
+	con.connect(function(error) {
+		if (error) {
+			console.log(error);
+			throw error;
+		}
+		console.log('Conectado ao mysql');
+		// Cria uma tabela no banco
+		//createTable();
+		response.json({'success': true});
+	});
+});
+
 // Retorna a lista de usuários
 router.get('/', function(request, response) {
     con.query('SELECT * FROM users', function(error, data) {
@@ -25,10 +42,10 @@ router.put('/', function(request, response) {
 
 // Atualiza um usuário
 router.post('/', function(request, response) {	
-	var usr_id = request.body.usr_id;
+	var usr_id = request.body.id;
 	var params = {
-		usr_name: request.body.usr_name,
-		usr_email: request.body.usr_email
+		usr_name: request.body.name,
+		usr_email: request.body.email
 	}
 	con.query('UPDATE users SET ? WHERE usr_id = ?', [params, usr_id], function(error, data) {
 		console.log(error, data);
