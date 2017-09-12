@@ -13,6 +13,9 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 		$http.get('/api/users/create-database')
 		.then(function successCallback(response) {
 			console.log(response);
+			if ( response.data.success ) {
+				getUsers();
+			}
 		})
 	}
 
@@ -20,6 +23,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 	var getUsers = function() {
 		$http.get('/api/users')
 		.then(function successCallback(response) {
+			$scope.msgError= "";
 			$scope.users = response.data;
 		}, function errorCallback(response) {			
 			$scope.msgError = "Erro ao acessar banco de dados!";

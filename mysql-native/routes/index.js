@@ -8,17 +8,6 @@ var con = mysql.createConnection(config.mysql);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
-	// Teste a conexão do banco
-	/*con.connect(function(error) {
-		if (error) {
-			throw error;
-		}
-		console.log('Conectado ao mysql');
-		// Cria uma tabela no banco
-		createTable();
-	});*/
-
 	res.render('index', { title: 'MySql' });
 });
 
