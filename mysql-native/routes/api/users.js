@@ -26,7 +26,11 @@ router.get('/create-database', function(request, response) {
 // Retorna a lista de usuários
 router.get('/', function(request, response) {
     con.query('SELECT * FROM users', function(error, data) {
-		response.json(data);
+    	if (error) {
+    		response.status(500).json(error);
+    	} else {
+    		response.json(data);
+    	}		
     });
 });
 
@@ -48,7 +52,6 @@ router.post('/', function(request, response) {
 		usr_email: request.body.email
 	}
 	con.query('UPDATE users SET ? WHERE usr_id = ?', [params, usr_id], function(error, data) {
-		console.log(error, data);
 		response.json(data);
 	});
 });

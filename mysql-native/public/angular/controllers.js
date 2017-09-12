@@ -2,9 +2,10 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 	
 	$scope.users = [];
 	$scope.selectedUserId = null;
+	$scope.msgError= "";
 
 	var init = function() {
-		//getUsers();
+		getUsers();
 	}
 
 	// Cria a estrutura do banco de dados
@@ -18,8 +19,10 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 	// Retorna a lista de usuários
 	var getUsers = function() {
 		$http.get('/api/users')
-		.then(function successCallback(response) {			
+		.then(function successCallback(response) {
 			$scope.users = response.data;
+		}, function errorCallback(response) {			
+			$scope.msgError = "Erro ao acessar banco de dados!";
 		});
 	}
 
@@ -31,7 +34,6 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 		}
 		$http.put('/api/users', _data)
 		.then(function successCallback(response) {
-			console.log(response);
 			if ( response.data != "" ) {
 				getUsers();
 			}
