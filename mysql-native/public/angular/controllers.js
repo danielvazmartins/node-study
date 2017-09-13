@@ -12,9 +12,20 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 	$scope.createDB = function() {
 		$http.get('/api/users/create-database')
 		.then(function successCallback(response) {
-			console.log(response);
 			if ( response.data.success ) {
 				getUsers();
+			}
+		})
+	}
+
+	// Remove a estrutura do banco de dados
+	$scope.removeDB = function() {
+		$http.get('/api/users/remove-database')
+		.then(function successCallback(response) {
+			console.log(response);
+			if ( response.status == 200 ) {
+				$scope.msgError = "Erro ao acessar banco de dados!";
+				$scope.users = "";
 			}
 		})
 	}
@@ -23,7 +34,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 	var getUsers = function() {
 		$http.get('/api/users')
 		.then(function successCallback(response) {
-			$scope.msgError= "";
+			$scope.msgError = "";
 			$scope.users = response.data;
 		}, function errorCallback(response) {			
 			$scope.msgError = "Erro ao acessar banco de dados!";

@@ -13,8 +13,9 @@ router.get('/create-database', function(request, response) {
 	con.connect(function(error) {
 		if (error) {						
 			var dbName = config.mysql.database;
-			delete config.mysql.database;
-			con = mysql.createConnection(config.mysql);
+			var configCopy = config;			
+			delete configCopy.mysql.database;
+			con = mysql.createConnection(configCopy.mysql);
 			con.connect(function(error) {				
 				if (error) {
 					// Nao ffoi possivel acessar o mysql
@@ -42,6 +43,7 @@ router.get('/create-database', function(request, response) {
 								  				')';
 								  	con.query(_sql, function(error, result) {
 								  		if ( error ) {
+								  			console.log("error 3");
 								  			response.status(500).json(error);
 								  		} else {
 								  			response.json({'success': true});
@@ -56,9 +58,20 @@ router.get('/create-database', function(request, response) {
 		} else {
 			response.json({'success': true});	
 		}
-		// Cria uma tabela no banco
-		//createTable();
 	});
+});
+
+// Remove a estrutura do banco de dados
+router.get('/remove-database', function(request, response) {
+	// Remove o bando de dados
+	var _sql = 'DROP DATABASE `' + config.mysql.database + '`';
+	con.query(_sql, function(error, data) {
+    	if (error) {
+    		response.status(500).json(error);
+    	} else {
+    		response.json(data);
+    	}		
+    });
 });
 
 // Retorna a lista de usuários

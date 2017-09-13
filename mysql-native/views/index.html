@@ -24,6 +24,9 @@
       </div>
       <div class="alert alert-danger" ng-show="msgError">{{msgError}}</div>
       <div class="well" ng-show="!msgError">
+        <a class="btn btn-danger btn-block" ng-click="removeDB()">Remover banco de dados</a>
+      </div>
+      <div class="well" ng-show="!msgError">
         <form>
           <div class="form-group">
               <label>Nome</label>
