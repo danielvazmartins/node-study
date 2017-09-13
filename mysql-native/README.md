@@ -8,3 +8,4 @@ express --hbs --view hbs passportjs
 https://github.com/mysqljs/mysql
 https://www.w3schools.com/nodejs/nodejs_mysql.asp
 http://www.makebetterthings.com/node-js/how-to-use-html-with-express-node-js/
+https://github.com/mysqljs/mysql#switching-users-and-altering-connection-state
