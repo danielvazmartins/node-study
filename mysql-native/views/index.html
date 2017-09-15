@@ -55,7 +55,7 @@
               <td>{{user.usr_name}}</td>
               <td>{{user.usr_email}}</td>
               <td><span class="glyphicon glyphicon-pencil" ng-click="editUser(user)"></span></td>
-              <td><span class="glyphicon glyphicon-trash" ng-click="delUser()"></span></td>
+              <td><span class="glyphicon glyphicon-trash" ng-click="delUser(user.usr_id)"></span></td>
             </tr>
           </tbody>
         </table>

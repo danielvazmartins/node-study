@@ -9,16 +9,19 @@ var con = mysql.createConnection(config.mysql);
 // Cria a estrutura do banco de dados
 router.get('/create-database', function(request, response) {
 
-	// Teste a conexão do banco
+	// Verifica se o banco existe
 	con.connect(function(error) {
 		if (error) {						
 			var dbName = config.mysql.database;
-			var configCopy = config;			
-			delete configCopy.mysql.database;
-			con = mysql.createConnection(configCopy.mysql);
+			// Conecta no servidor mysql
+			con = mysql.createConnection({
+				host: config.mysql.host, 
+				user: config.mysql.user,
+				password: config.mysql.password
+			});
 			con.connect(function(error) {				
 				if (error) {
-					// Nao ffoi possivel acessar o mysql
+					// Nao foi possivel acessar o servidor mysql
 		    		response.status(500).json(error);
 		    	} else {
 		    		// Criar bando de dados
@@ -30,7 +33,7 @@ router.get('/create-database', function(request, response) {
 				    		// Altera para a database criada
 				    		con.changeUser({database: dbName}, function(error) {
 				    			if (error) {
-				    				// Nao ffoi possivel acessar a base criada
+				    				// Nao foi possivel acessar a base criada
 		    						response.status(500).json(error);
 				    			} else {
 				    				// Cria tabela no banco
@@ -43,7 +46,6 @@ router.get('/create-database', function(request, response) {
 								  				')';
 								  	con.query(_sql, function(error, result) {
 								  		if ( error ) {
-								  			console.log("error 3");
 								  			response.status(500).json(error);
 								  		} else {
 								  			response.json({'success': true});
@@ -103,6 +105,14 @@ router.post('/', function(request, response) {
 		usr_email: request.body.email
 	}
 	con.query('UPDATE users SET ? WHERE usr_id = ?', [params, usr_id], function(error, data) {
+		response.json(data);
+	});
+});
+
+// Remove um usuário
+router.delete('/:id', function(request, response) {
+	var usr_id = request.params.id;
+	con.query('DELETE FROM users WHERE usr_id = ?', [usr_id], function(error, data) {
 		response.json(data);
 	});
 });

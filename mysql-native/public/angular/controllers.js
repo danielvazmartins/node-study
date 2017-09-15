@@ -50,6 +50,8 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 		$http.put('/api/users', _data)
 		.then(function successCallback(response) {
 			if ( response.data != "" ) {
+				$scope.name = "";
+				$scope.email = "";
 				getUsers();
 			}
 		});
@@ -81,8 +83,13 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http) {
 	}
 
 	// Remover usuário
-	$scope.delUser = function() {
-		console.log('delUser');
+	$scope.delUser = function(usr_id) {
+		$http.delete('/api/users/' + usr_id)
+		.then(function successCallback(response) {
+			if ( response.data != "" ) {
+				getUsers();
+			}
+		});
 	}
 
 	init();
