@@ -65,7 +65,7 @@ router.get('/create-database', function(request, response) {
 
 // Remove a estrutura do banco de dados
 router.get('/remove-database', function(request, response) {
-	// Remove o bando de dados
+	// Remove o banco de dados
 	var _sql = 'DROP DATABASE `' + config.mysql.database + '`';
 	con.query(_sql, function(error, data) {
     	if (error) {

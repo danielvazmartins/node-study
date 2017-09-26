@@ -51,7 +51,14 @@ router.get('/create-database', function(request, response) {
 
 // Remove a estrutura do banco de dados
 router.get('/remove-database', function(request, response) {
-	response.json({status: 'em desenvolvimento'});
+	Users.drop()
+	.then(function(data) {
+		response.json({'success': true});
+	})
+	.catch(function(error) {
+		console.log("error = ", error);		
+		response.status(500).json(error); 
+	});
 });
 
 // Retorna a lista de usuários
@@ -70,46 +77,114 @@ router.get('/', function(request, response) {
 router.put('/', function(request, response) {
 	var usr_name = request.body.name;
 	var usr_email = request.body.email;
+
+	// Criando um registro novo usando o metodo create
 	Users.create({
 		usr_name: usr_name,
 		usr_email: usr_email
-	}, {
-		fields: ['usr_name', 'usr_email']
-	}).
-	then(function(result) {
+	})
+	.then(function(result) {
 		response.json(result);
 	})
 	.catch(function(error) {
     	console.log("error = ", error);	
     	response.status(500).json(error);
     });
+
+    // Criando um registro novo usando o metodo build e save
+    /*var user = Users.build({
+    	usr_name: usr_name,
+		usr_email: usr_email
+    });
+    user.save()
+    .then(function(result) {
+		response.json(result);
+	})
+	.catch(function(error) {
+    	console.log("error = ", error);	
+    	response.status(500).json(error);
+    });*/
 });
 
 // Atualiza um usuário
 router.post('/', function(request, response) {	
 	var usr_id = request.body.id;
-	var params = {
+	
+	// Atualiza usando o find e update
+	var newData = {
 		usr_name: request.body.name,
 		usr_email: request.body.email
 	}
-
-	Users.update({
+	// Procura o registro que será alterado
+	Users.findOne({
 		where: {
 			usr_id: usr_id
 		}
-	}, params).
-	then(function(result) {
+	}).then(function(user) {
+		// Altera o registro retornado
+		user.update(newData).
+		then(function(result) {
+			response.json(result);
+		})
+		.catch(function(error) {
+	    	console.log("error = ", error);	
+	    	response.status(500).json(error);
+	    });
+	});
+
+	// Atualiza usando find e save
+	/*// Procura o registro que será alterado
+	Users.findOne({
+		where: {
+			usr_id: usr_id
+		}
+	}).then(function(user) {
+		// Altera o registro retornado
+		user.usr_name = request.body.name;
+		user.usr_email = request.body.email
+		user.save().
+		then(function(result) {
+			response.json(result);
+		})
+		.catch(function(error) {
+	    	console.log("error = ", error);	
+	    	response.status(500).json(error);
+	    });
+	});*/
+
+});
+
+// Remove um usuário
+router.delete('/:id', function(request, response) {
+	// Remover um registro usando o where direto no destroy
+	var usr_id = request.params.id;
+	Users.destroy({
+		where: {
+			usr_id: usr_id
+		}
+	})
+	.then(function(result) {
 		response.json(result);
 	})
 	.catch(function(error) {
     	console.log("error = ", error);	
     	response.status(500).json(error);
     });
-});
 
-// Remove um usuário
-router.delete('/:id', function(request, response) {
-	response.json({status: 'em desenvolvimento'});
+	// Remover um registro pesquisando e removendo
+	/*var usr_id = request.params.id;
+	Users.findOne({
+		where: {
+			usr_id: usr_id
+		}
+	})
+	.then(function(user) {
+		// Remove o registro retornado
+		user.destroy()
+		.then(function(result) {
+			response.json(result);
+		});
+	});*/	
 });
 
 
