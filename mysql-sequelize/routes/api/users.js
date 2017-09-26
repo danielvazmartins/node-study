@@ -17,7 +17,7 @@ var Users = sequelize.define('users', {
 		primaryKey: true,
 		autoIncrement: true
 	},
-	urs_name: {
+	usr_name: {
 		type: Sequelize.STRING(60),
 		allowNull: false
 	},
@@ -68,12 +68,43 @@ router.get('/', function(request, response) {
 
 // Insere um usuário novo
 router.put('/', function(request, response) {
-	response.json({status: 'em desenvolvimento'});
+	var usr_name = request.body.name;
+	var usr_email = request.body.email;
+	Users.create({
+		usr_name: usr_name,
+		usr_email: usr_email
+	}, {
+		fields: ['usr_name', 'usr_email']
+	}).
+	then(function(result) {
+		response.json(result);
+	})
+	.catch(function(error) {
+    	console.log("error = ", error);	
+    	response.status(500).json(error);
+    });
 });
 
 // Atualiza um usuário
 router.post('/', function(request, response) {	
-	response.json({status: 'em desenvolvimento'});
+	var usr_id = request.body.id;
+	var params = {
+		usr_name: request.body.name,
+		usr_email: request.body.email
+	}
+
+	Users.update({
+		where: {
+			usr_id: usr_id
+		}
+	}, params).
+	then(function(result) {
+		response.json(result);
+	})
+	.catch(function(error) {
+    	console.log("error = ", error);	
+    	response.status(500).json(error);
+    });
 });
 
 // Remove um usuário
