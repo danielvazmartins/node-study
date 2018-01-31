@@ -1,4 +1,4 @@
-### node-study
+# node-study
 Repositório com exemplos e testes práticos
 Quando baixar um projeto novo, precisa entrar na pasto do projeto e rodar o "npm install"
 Iniciar qualquer projeto com "nodemon ./nome-do-projeto/bin/www"
@@ -21,6 +21,9 @@ Utilização do client do mysql nativo para realizar operações no banco de dad
 
 ## mysql-sequelize
 Utilizando o ORM (Object Relational Mapper) Sequelize para realizar operações no banco de dados
+
+## bcrypt
+Utilizar biblioteca do node para gerar hash, similar ao password do mysql
 
 ## Projetos para verificar
 - http native - https://nodejs.org/api/http.html
