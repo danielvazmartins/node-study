@@ -22,10 +22,11 @@ Utilização do client do mysql nativo para realizar operações no banco de dad
 ## mysql-sequelize
 Utilizando o ORM (Object Relational Mapper) Sequelize para realizar operações no banco de dados
 
-## bcrypt
+## bcrypt (incompleto)
 Utilizar biblioteca do node para gerar hash, similar ao password do mysql
 
 ## Projetos para verificar
 - http native - https://nodejs.org/api/http.html
 - Express routing - https://expressjs.com/en/guide/routing.html
 - Sequelize - http://docs.sequelizejs.com/
+- Multer - (Upload de imagens) https://www.npmjs.com/package/multer
