@@ -41,8 +41,13 @@ sequelize db:migrate:status
 ```
 
 ## Dados do banco (seeders)
-```
+```bash
+# Criar um arquivo de seeder para alimentar o banco
+sequelize seed:generate --name users
+sequelize seed:generate --name team
 
+# Popular o banco com os dados com os dados dos seeders
+sequelize db:seed:all
 ```
 
 ## Fontes

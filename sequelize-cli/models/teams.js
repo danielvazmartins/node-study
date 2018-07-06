@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var team = sequelize.define('team', {
+  var team = sequelize.define('teams', {
     tea_id: {
       allowNull: false,
       autoIncrement: true,
