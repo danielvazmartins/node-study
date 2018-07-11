@@ -54,3 +54,7 @@ sequelize db:seed:all
 - http://docs.sequelizejs.com/
 - https://github.com/sequelize/cli
 - http://mherman.org/blog/2015/10/22/node-postgres-sequelize/
+- https://developers.google.com/web/updates/2015/03/introduction-to-fetch
+
+## TODO
+- Verificar porque está inserindo com o id null

@@ -11,4 +11,17 @@ router.get('/', function(req, res, next) {
     });
 });
 
+// Insere um novo registro
+router.post('/', function(req, res, next) {
+    console.log(req.body);
+    let tea_name = req.body.teamName;
+
+    db.teams.create({
+        tea_name: tea_name
+    })
+    .then(function(result) {
+        res.json(result);
+    });    
+});
+
 module.exports = router;
