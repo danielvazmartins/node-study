@@ -7,13 +7,15 @@ module.exports = {
       use_name: "User 1",
       use_password: "123456",
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
+      tea_id: 1
     },{
       use_email: "user2@teste.com",
       use_name: "User 2",
       use_password: "123456",
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
+      tea_id: 1
     }], {});
   },
 

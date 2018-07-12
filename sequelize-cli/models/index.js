@@ -33,4 +33,7 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+// Recriar o banco utilizando os models
+//db.sequelize.sync({force: true});
+
 module.exports = db;

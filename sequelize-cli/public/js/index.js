@@ -12,8 +12,16 @@ function getTeams() {
         .then(function(data) {
             document.getElementById('list-teams').innerHTML = '';
             data.forEach(team => {
-                document.getElementById('list-teams').insertAdjacentHTML('beforeend', `<li class="list-group-item">${team.tea_name}</li>`);
-            });            
+                document.getElementById('list-teams').insertAdjacentHTML('beforeend', 
+                    `<li class="list-group-item">
+                        ${team.tea_name}
+                        <span href="javascript:deleteTeam(${team.tea_id})" class="glyphicon glyphicon-trash btn pull-right"></span>
+                        <a class="glyphicon glyphicon-pencil btn pull-right"></a>
+                        <span class="clearfix"></span>
+                    </li>`);
+            });
+            let firstListItem = document.querySelector('#list-teams .list-group-item');
+            firstListItem.className = firstListItem.className + ' active';
         });
     });
 }
@@ -37,6 +45,7 @@ function getUsers() {
     });
 }
 
+// Insere uma nova equipe
 function insertTeam() {
     let teamName = document.getElementById('team-name').value;
     fetch('teams', {
@@ -48,6 +57,15 @@ function insertTeam() {
     })
     .then(function(response) {
         getTeams();
-        console.log(response);
+    });
+}
+
+// Remove uma equipe
+function deleteTeam(teamId) {
+    fetch(`teams/${teamId}`, {
+        method: 'delete'
+    })
+    .then(function(response) {
+        getTeams();
     });
 }

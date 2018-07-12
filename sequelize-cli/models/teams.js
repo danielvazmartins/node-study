@@ -10,7 +10,12 @@ module.exports = (sequelize, DataTypes) => {
     tea_name: DataTypes.STRING
   }, {});
   team.associate = function(models) {
-    // associations can be defined here
+    // Relacionamento 1 para N (team has many users)
+    team.hasMany(models.users, {
+      foreignKey: {
+        field: 'tea_id'
+      }
+    });
   };
   return team;
 };

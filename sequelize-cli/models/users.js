@@ -12,7 +12,14 @@ module.exports = (sequelize, DataTypes) => {
     use_password: DataTypes.STRING
   }, {});
   users.associate = function(models) {
-    // associations can be defined here
+    users.belongsTo(models.teams, {
+      foreignKey: {
+				name: 'tea_id',
+				allowNull: false
+			},
+			// Apaga esse registro se o team for removido
+			onDelete: 'CASCADE'
+    });
   };
   return users;
 };

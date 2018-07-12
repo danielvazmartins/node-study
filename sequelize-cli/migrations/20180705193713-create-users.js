@@ -24,6 +24,15 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      // Cria a chave estrangeira (users belongs to teams)
+      tea_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'teams',
+          key: 'tea_id'
+        },
+        allowNull: false
       }
     });
   },

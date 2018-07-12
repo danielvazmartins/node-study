@@ -24,4 +24,16 @@ router.post('/', function(req, res, next) {
     });    
 });
 
+// Remove um registro
+router.delete('/:teamId', function(req, res, next) {
+    db.teams.destroy({
+        where: {
+            tea_id: req.params.teamId
+        }
+    })
+    .then(function(result) {
+        res.json(result);
+    });
+});
+
 module.exports = router;
