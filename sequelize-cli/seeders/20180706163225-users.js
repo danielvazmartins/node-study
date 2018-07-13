@@ -8,14 +8,21 @@ module.exports = {
       use_password: "123456",
       createdAt: new Date(),
       updatedAt: new Date(),
-      tea_id: 1
+      tea_id: 11
     },{
       use_email: "user2@teste.com",
       use_name: "User 2",
       use_password: "123456",
       createdAt: new Date(),
       updatedAt: new Date(),
-      tea_id: 1
+      tea_id: 11
+    },{
+      use_email: "user3@teste.com",
+      use_name: "User 3",
+      use_password: "123456",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      tea_id: 12
     }], {});
   },
 
@@ -23,6 +30,6 @@ module.exports = {
     // Limpa a tabela inteira
     //return queryInterface.bulkDelete('users', null, {});
     // Limpa apenas o que foi importado
-    return queryInterface.bulkDelete('users', {use_email: {[Sequelize.Op.in]: ['user1@teste.com', 'user2@teste.com']}}, {});
+    return queryInterface.bulkDelete('users', {use_email: {[Sequelize.Op.in]: ['user1@teste.com', 'user2@teste.com', 'user3@teste.com']}}, {});
   }
 };
