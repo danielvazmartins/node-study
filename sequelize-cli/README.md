@@ -60,6 +60,7 @@ sequelize db:seed:all
 - https://github.com/sequelize/cli
 - http://mherman.org/blog/2015/10/22/node-postgres-sequelize/
 - https://codeburst.io/sequelize-migrations-setting-up-associations-985d29b61ee7 (Sequelize, migrations, relationships)
+- https://www.learnacademy.org/current-days/569 (Sequelize, migrations, seeders)
 - https://en.wikipedia.org/wiki/Representational_state_transfer (Rest)
 - https://developers.google.com/web/updates/2015/03/introduction-to-fetch (Fetch)
 - https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/ (Bootstrap)
