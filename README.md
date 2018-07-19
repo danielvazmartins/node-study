@@ -35,4 +35,5 @@ Utilizando o sequelize e o sequelize-cli para verificar as opções de criar, at
 - Express routing - https://expressjs.com/en/guide/routing.html
 - Sequelize - http://docs.sequelizejs.com/
 - Multer - (Upload de imagens) https://www.npmjs.com/package/multer
-- Sequelize Cli - http://mherman.org/blog/2015/10/22/node-postgres-sequelize/
+- Faker.js - https://github.com/marak/faker.js/
+- Elasticsearch - https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/about.html
