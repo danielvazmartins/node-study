@@ -25,4 +25,4 @@ Utilizando o ORM (Object Relational Mapper) Sequelize para realizar operações 
 ## Projetos para verificar
 - http native - https://nodejs.org/api/http.html
 - Express routing - https://expressjs.com/en/guide/routing.html
-- Sequelize - http://docs.sequelizejs.com/
+- Sequelize CLI - https://github.com/sequelize/cli
