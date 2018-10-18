@@ -30,6 +30,21 @@ Utilizar biblioteca do node para gerar hash, similar ao password do mysql
 ### sequelize-cli
 Utilizando o sequelize e o sequelize-cli para verificar as opções de criar, atualizar e popular o banco de dados
 
+### cron-task
+Utilizando o módulo node-cron para fazer o agendamento de tarefas no NodeJs
+
+### nest-framework
+Framework em NojeJs para criação de APIs utilizando TypeScript
+
+### email-nodemailer
+Componente utilizado para fazer o envio de e-mails
+
+### puppetter
+Biblioteca do Google para controle do navegador através de API. Útil para automatizar alguma tareda, testes integradados, prints de telas
+
+### bot-telegram
+Bot para Telegram
+
 ## Projetos para verificar
 - http native - https://nodejs.org/api/http.html
 - Express routing - https://expressjs.com/en/guide/routing.html
@@ -37,3 +52,4 @@ Utilizando o sequelize e o sequelize-cli para verificar as opções de criar, at
 - Multer - (Upload de imagens) https://www.npmjs.com/package/multer
 - Faker.js - https://github.com/marak/faker.js/
 - Elasticsearch - https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/about.html
+- SQLite3 - https://github.com/mapbox/node-sqlite3
