@@ -4,6 +4,14 @@ Quando baixar um projeto novo, precisa entrar na pasto do projeto e rodar o "npm
 Iniciar qualquer projeto com "nodemon ./nome-do-projeto/bin/www"
 Todos projetos estão rodando na porta 3000
 
+## Executar
+ ```bash
+cd PROJETO
+npm install
+# Abrir projeto passando uma porta no windows (tem que ser no prompt, nao funciona no terminal do VsCode)
+set PORT=3001& nodemon ./bin/www
+```
+
 ## Projetos
 
 ### express-hello-world
@@ -44,6 +52,16 @@ Biblioteca do Google para controle do navegador através de API. Útil para auto
 
 ### bot-telegram
 Bot para Telegram
+
+### sqlite
+Utilizando o modulo node-sqlite3 para trabalhar com o banco de dados sqlite
+
+### typescript-express
+Utilizando type script com node e express
+
+### sqlite-sequelize
+Utilizando o ORM (Object Relational Mapper) Sequelize para realizar operações no banco de dados sqlite
+
 
 ## Projetos para verificar
 - http native - https://nodejs.org/api/http.html
