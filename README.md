@@ -62,12 +62,28 @@ Utilizando type script com node e express
 ### sqlite-sequelize
 Utilizando o ORM (Object Relational Mapper) Sequelize para realizar operações no banco de dados sqlite
 
+### test-nock
+Modulo de teste (nock) para fazer o mock de requisições externas
+
+### test-superagent-mock
+Modulo de teste (speragent-mock) para fazer o mock de requisições externas
+
+### test-mocha
+Framework de testes unitários
+
+### test-jasmine
+Framework de testes unitários
+
+### test-istanbul
+Ferramenta para gerar relatório de cobertura dos testes unitários
+
+### jwt-auth
+Autenticação utilizando JWT (Json Web Token)
 
 ## Projetos para verificar
 - http native - https://nodejs.org/api/http.html
 - Express routing - https://expressjs.com/en/guide/routing.html
-- Sequelize - http://docs.sequelizejs.com/
 - Multer - (Upload de imagens) https://www.npmjs.com/package/multer
 - Faker.js - https://github.com/marak/faker.js/
 - Elasticsearch - https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/about.html
-- SQLite3 - https://github.com/mapbox/node-sqlite3
+- Istanbul - https://istanbul.js.org/

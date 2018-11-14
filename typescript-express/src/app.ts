@@ -6,5 +6,4 @@ const app = express();
 // Inicializa as rotas
 new Router(app)
 
-
 export default app;

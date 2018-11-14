@@ -1,0 +1,1 @@
+console.log('Executar "npm test" para rodar os testes')

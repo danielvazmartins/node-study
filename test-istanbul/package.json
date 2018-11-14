@@ -1,0 +1,23 @@
+{
+  "name": "test-istanbul",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "nyc --reporter=html --reporter=text mocha",
+    "coverage": "nyc --reporter=html --reporter=text --check-coverage --statements 80 --lines 80 --functions 80 --branches 80 --per-file mocha"
+  },
+  "nyc": {
+      "include": ["**/src/*.js"],
+      "all": true
+  },
+  "author": "Daniel Vaz Villalobos Martins",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
+  }
+}

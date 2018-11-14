@@ -1,0 +1,16 @@
+{
+  "name": "test-superagent-mock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Vaz Villalobos Martins",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0",
+    "superagent": "^4.0.0-beta.5",
+    "superagent-mock": "^3.7.0"
+  }
+}
