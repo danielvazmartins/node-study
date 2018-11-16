@@ -30,8 +30,8 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-
-  (err.status == 401)? res.send(err.message): res.render('error');
+  res.send(err.message)
+  //(err.status == 401)? res.send(err.message): res.render('error');
 });
 
 module.exports = app;
