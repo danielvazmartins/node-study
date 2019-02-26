@@ -80,6 +80,9 @@ Ferramenta para gerar relatório de cobertura dos testes unitários
 ### jwt-auth
 Autenticação utilizando JWT (Json Web Token)
 
+### graphql-apollo
+Servidor de API GraphQl utilizando apollo-server
+
 ## Projetos para verificar
 - http native - https://nodejs.org/api/http.html
 - Express routing - https://expressjs.com/en/guide/routing.html
