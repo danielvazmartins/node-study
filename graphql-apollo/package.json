@@ -1,0 +1,19 @@
+{
+  "name": "graphql-apollo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Vaz Villalobos Martins",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.4.8",
+    "bcryptjs": "^2.4.3",
+    "graphql": "^14.1.1",
+    "sequelize": "^4.42.0",
+    "sequelize-cli": "^5.4.0",
+    "sqlite3": "^4.0.6"
+  }
+}
