@@ -83,6 +83,12 @@ Autenticação utilizando JWT (Json Web Token)
 ### graphql-apollo
 Servidor de API GraphQl utilizando apollo-server
 
+### mongo-native
+Acesso ao banco de dados NoSQL MongoDB usando o modulo oficial do mongodb
+
+### nest-mongoose
+Framework Nest com typescript acessando o MongoDB usando o mongoose
+
 ## Projetos para verificar
 - http native - https://nodejs.org/api/http.html
 - Express routing - https://expressjs.com/en/guide/routing.html

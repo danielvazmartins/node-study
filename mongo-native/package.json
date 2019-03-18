@@ -1,0 +1,15 @@
+{
+  "name": "mongo-native",
+  "version": "1.0.0",
+  "description": "Acesso ao banco de dados NoSQL MongoDB usando o modulo oficial do mongodb",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Vaz Villalobos Martins",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.1.13"
+  }
+}

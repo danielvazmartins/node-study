@@ -23,6 +23,7 @@ export class Res1Controller {
         }
     }
 
+    // Recebe um parâmetro na URL
     @Get(':id')
     getParam(@Param() params) {
         return {
