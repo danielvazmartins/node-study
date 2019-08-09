@@ -89,6 +89,12 @@ Acesso ao banco de dados NoSQL MongoDB usando o modulo oficial do mongodb
 ### nest-mongoose
 Framework Nest com typescript acessando o MongoDB usando o mongoose
 
+### express-mongoose
+Framewordk Express acessando o MongoDB usando o mongoose
+
+### graphql-sql-yoga
+Framework Express acessando o banco dom Sequelize e usando o GraphQl com o graphql-yoga
+
 ## Projetos para verificar
 - http native - https://nodejs.org/api/http.html
 - Express routing - https://expressjs.com/en/guide/routing.html
