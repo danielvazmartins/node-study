@@ -1,0 +1,10 @@
+'use strict'
+const { GraphQLServer } = require('graphql-yoga')
+const typeDefs = require('./schema')
+const resolvers = require('./resolvers')
+
+const server = new GraphQLServer({ typeDefs, resolvers })
+server.start(() => console.log('Server is running on localhost:4000'))
+
+//const db = require('../models')
+//db.sequelize.sync()
