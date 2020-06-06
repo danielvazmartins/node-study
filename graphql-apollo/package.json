@@ -9,7 +9,7 @@
   "author": "Daniel Vaz Villalobos Martins",
   "license": "ISC",
   "dependencies": {
-    "apollo-server": "^2.4.8",
+    "apollo-server": "^2.14.2",
     "bcryptjs": "^2.4.3",
     "graphql": "^14.1.1",
     "sequelize": "^4.42.0",
