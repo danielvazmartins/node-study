@@ -1,0 +1,16 @@
+{
+  "name": "apis-testaveis",
+  "version": "1.0.0",
+  "description": "Estudo do Livro - Construindo APIs testaveis com NodeJs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --experimental-modules server.js",
+    "start:dev": "nodemon --experimental-modules server.js"
+  },
+  "author": "Daniel Vaz Villalobos Martins",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "type": "module"
+}
